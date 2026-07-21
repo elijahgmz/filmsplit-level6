@@ -247,6 +247,29 @@ export const CreateProjectModal: React.FC<CreateProjectModalProps> = ({
             </button>
           </div>
 
+          {/* Precise Revenue Split Breakdown Preview */}
+          <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-950/20 via-slate-900/60 to-purple-950/20 border border-slate-800">
+            <h4 className="text-xs font-bold text-white mb-2 flex items-center space-x-1.5">
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>Preview Revenue Split (Mock Deposit: 1,000 XLM)</span>
+            </h4>
+            <div className="space-y-1">
+              {collaborators.map((c, idx) => {
+                const estimatedXlm = ((c.sharePercent || 0) / 100) * 1000;
+                return (
+                  <div key={idx} className="flex items-center justify-between text-[11px] font-mono text-slate-300">
+                    <span>
+                      {c.role || `Collaborator #${idx + 1}`} ({c.sharePercent}%)
+                    </span>
+                    <span className="text-amber-400 font-bold">
+                      {estimatedXlm.toLocaleString(undefined, { minimumFractionDigits: 1 })} XLM
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="pt-4 flex items-center justify-end space-x-3 border-t border-slate-800">
             <button
               type="button"

@@ -13,9 +13,8 @@ describe("FilmSplit Level 4 dApp Frontend", () => {
   test("renders connect wallet button and Stellar Testnet badge", () => {
     render(<App />);
     const networkBadges = screen.getAllByText(/Stellar Testnet/i);
-    const connectButton = screen.getByText(/Connect Wallet/i);
-    expect(networkBadges.length).toBeGreaterThan(0);
-    expect(connectButton).toBeInTheDocument();
+    const connectButtons = screen.getAllByText(/Connect Wallet/i);
+    expect(connectButtons[0]).toBeInTheDocument();
   });
 
   test("renders film project directory and dashboard stats", () => {

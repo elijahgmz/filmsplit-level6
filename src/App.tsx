@@ -21,6 +21,7 @@ import { SecurityAuditModal } from "./components/SecurityAuditModal";
 import { RoyaltyNftTokenizer } from "./components/RoyaltyNftTokenizer";
 import { StreamingRevenueApi } from "./components/StreamingRevenueApi";
 import { GrowthReportModal } from "./components/GrowthReportModal";
+import { WalkthroughHelper } from "./components/WalkthroughHelper";
 
 import { Film, Plus, Coins, Users, AlertTriangle, CheckCircle, ExternalLink, RefreshCw, Sparkles, Lock, ArrowUpRight } from "lucide-react";
 
@@ -496,6 +497,7 @@ export default function App() {
         />
 
         {/* Active Section Feature Rendering */}
+        <WalkthroughHelper />
         <FeeSponsorshipWidget />
         {activeSection === "nft" && <RoyaltyNftTokenizer />}
         {activeSection === "streaming" && <StreamingRevenueApi />}
